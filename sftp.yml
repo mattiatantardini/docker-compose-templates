@@ -1,0 +1,11 @@
+---
+version: '3'
+
+services:
+  sftp:
+    image: atmoz/sftp:latest
+    volumes:
+      - ${DATA_VOLUMES_DIR:-.}/sftp:/home/sftp/upload
+    ports:
+      - 2221:22
+    command: ${SFTP_USER}:${SFTP_PASSWORD}:1000
